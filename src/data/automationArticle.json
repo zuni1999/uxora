@@ -1,0 +1,302 @@
+{
+  "title": "AI Agents vs. Workflow Automation: Which Does Your Business Need?",
+  "intro": [
+    "A new enquiry arrives. Someone reads it, checks the customer record, assigns it to a colleague, and prepares a response. The process happens repeatedly—but how much of it should you automate, and where would AI actually help?",
+    "The answer depends on the decisions involved. Some tasks follow clear rules. Others require interpreting incomplete information, investigating several sources, or choosing what to do next.",
+    "This guide compares AI agents and workflow automation through practical business scenarios. It also explains how to evaluate cost, define approval boundaries, and test a useful first implementation."
+  ],
+  "blocks": [
+    {
+      "kind": "h2",
+      "text": "What Is the Difference Between AI Agents and Workflow Automation?"
+    },
+    {
+      "kind": "p",
+      "text": "Workflow automation follows a predefined process. An AI agent can select its next action based on the task, available information, and results from earlier actions."
+    },
+    {
+      "kind": "p",
+      "text": "An automated workflow can include AI. For example, a model might classify an incoming message while fixed rules determine where that message goes afterward. Using AI within a process does not automatically make the entire system an autonomous agent."
+    },
+    {
+      "kind": "table",
+      "text": "Approach\tHow it operates\tExample\nRules-based workflow\tFollows predefined conditions and actions\tAssign a submitted form to a team based on location\nAI-assisted workflow\tUses AI within a defined sequence\tExtract details from an enquiry, validate them, then create a draft record\nAI agent\tChooses actions and tools within defined limits\tInvestigate a support issue across approved systems and propose a resolution"
+    },
+    {
+      "kind": "p",
+      "text": "The distinction is about who determines the next step—not whether the interface looks like a chatbot."
+    },
+    {
+      "kind": "h2",
+      "text": "When Workflow Automation Is the Better Fit"
+    },
+    {
+      "kind": "p",
+      "text": "Start with a workflow when you can describe the process clearly and anticipate its main exceptions."
+    },
+    {
+      "kind": "p",
+      "text": "Consider appointment reminders. The system checks an appointment date, confirms the booking is active, and sends an approved reminder at a scheduled time. There is little value in asking an AI agent to invent the sequence."
+    },
+    {
+      "kind": "p",
+      "text": "Before building, define:"
+    },
+    {
+      "kind": "list",
+      "text": "Trigger: What starts the process?\nRequired information: What must be present?\nRules: What determines the next action?\nExceptions: What happens when information is missing?\nOwner: Who handles a failed or disputed outcome?"
+    },
+    {
+      "kind": "p",
+      "text": "If the team cannot agree on these basics, resolve the process first. Automating conflicting instructions creates a faster version of the same confusion."
+    },
+    {
+      "kind": "h2",
+      "text": "When an AI Agent May Be Useful"
+    },
+    {
+      "kind": "p",
+      "text": "Consider an agent when the required investigation varies meaningfully between cases."
+    },
+    {
+      "kind": "p",
+      "text": "For example, “Find out why this customer’s order is delayed” could require checking fulfillment records, reading a delivery update, and reviewing a previous support conversation. The useful next step depends on what each check reveals."
+    },
+    {
+      "kind": "p",
+      "text": "That flexibility needs boundaries. Define which records the agent can access, which actions it can perform, and when it must stop or ask for help. Evaluate whether the additional flexibility justifies the extra complexity."
+    },
+    {
+      "kind": "h2",
+      "text": "Three Business Examples: Choosing the Right Approach"
+    },
+    {
+      "kind": "h3",
+      "text": "1. Lead Intake and Qualification"
+    },
+    {
+      "kind": "p",
+      "text": "Scenario: Website enquiries arrive in different formats, and staff manually transfer information into a CRM."
+    },
+    {
+      "kind": "p",
+      "text": "Suggested starting point: An AI-assisted workflow."
+    },
+    {
+      "kind": "p",
+      "text": "Use AI to extract the requested service and summarize the enquiry. Validate required fields, check for an existing record, and apply agreed routing rules."
+    },
+    {
+      "kind": "p",
+      "text": "Keep missing information marked as missing. The system should not invent a budget or project timeline to complete a field."
+    },
+    {
+      "kind": "p",
+      "text": "Pilot measure: Compare the proportion of records accepted without correction and the staff time spent reviewing them."
+    },
+    {
+      "kind": "h3",
+      "text": "2. Invoice Intake and Review"
+    },
+    {
+      "kind": "p",
+      "text": "Scenario: A team receives supplier invoices as PDFs and spends time entering details."
+    },
+    {
+      "kind": "p",
+      "text": "Suggested starting point: A defined extraction and validation workflow."
+    },
+    {
+      "kind": "p",
+      "text": "Extract the invoice number, supplier, line items, and total. Check for duplicate records and mismatches against the relevant purchase information. Route exceptions to a reviewer."
+    },
+    {
+      "kind": "p",
+      "text": "Keep payment authorization separate from document interpretation. Reading an invoice correctly does not establish that it should be paid."
+    },
+    {
+      "kind": "p",
+      "text": "Pilot measure: Track extraction corrections, duplicate detection, and review time per invoice."
+    },
+    {
+      "kind": "h3",
+      "text": "3. Customer Support Investigation"
+    },
+    {
+      "kind": "p",
+      "text": "Scenario: Support requests require different combinations of account history, product information, and troubleshooting."
+    },
+    {
+      "kind": "p",
+      "text": "Suggested starting point: A bounded agent that prepares recommendations for staff."
+    },
+    {
+      "kind": "p",
+      "text": "Give it access to approved information and require it to show the evidence behind its proposed response. Begin with drafting and investigation before allowing changes to customer accounts."
+    },
+    {
+      "kind": "p",
+      "text": "Define escalation conditions for contradictory records, unavailable systems, or requests outside its authority."
+    },
+    {
+      "kind": "p",
+      "text": "Pilot measure: Track accepted recommendations, reopened cases, and the time reviewers spend checking the evidence."
+    },
+    {
+      "kind": "p",
+      "text": "These scenarios illustrate implementation choices; they are not claims about UXORA client results."
+    },
+    {
+      "kind": "h2",
+      "text": "A Practical Decision Framework"
+    },
+    {
+      "kind": "p",
+      "text": "Choose the approach by examining the task rather than starting with a preferred tool."
+    },
+    {
+      "kind": "table",
+      "text": "Question\tWhat the answer suggests\nCan the process be mapped into stable rules?\tBegin with workflow automation\nIs the difficult part interpreting text or documents?\tEvaluate an AI-assisted step\nDoes the next action depend on findings from several systems?\tConsider a bounded agent\nIs the underlying information incomplete or contradictory?\tImprove the information and exception process first\nCan a mistake create a significant commitment?\tAdd explicit authorization before that action\nCan success be checked consistently?\tUse that check to evaluate the pilot"
+    },
+    {
+      "kind": "p",
+      "text": "A hybrid design is also possible. A workflow can manage intake, permissions, and approvals while an agent handles a limited investigation inside it."
+    },
+    {
+      "kind": "automation-diagram",
+      "text": ""
+    },
+    {
+      "kind": "h2",
+      "text": "What Does AI Automation Actually Cost?"
+    },
+    {
+      "kind": "p",
+      "text": "Build your estimate around the complete operating process. Include implementation, integrations, software usage, human review, monitoring, and maintenance."
+    },
+    {
+      "kind": "p",
+      "text": "A useful pilot calculation is:"
+    },
+    {
+      "kind": "p",
+      "text": "Cost per accepted task = total pilot operating cost ÷ tasks completed to the agreed standard"
+    },
+    {
+      "kind": "p",
+      "text": "Define “accepted” before testing. A generated response that requires extensive correction should not count as an independently completed task."
+    },
+    {
+      "kind": "p",
+      "text": "Also record:"
+    },
+    {
+      "kind": "list",
+      "text": "Review time per task.\nFailed attempts and retries.\nCorrections after completion.\nTime spent maintaining the integration.\nTasks returned to the manual process."
+    },
+    {
+      "kind": "p",
+      "text": "For example, if a system produces 100 drafts but only 60 are accepted without substantial edits, report both numbers. “100 tasks automated” would hide the work still required."
+    },
+    {
+      "kind": "h2",
+      "text": "Decide What Needs Human Approval"
+    },
+    {
+      "kind": "p",
+      "text": "Create an action policy before connecting the system to live operations."
+    },
+    {
+      "kind": "p",
+      "text": "For each action, specify whether it may run automatically, needs approval, or is outside scope. Preparing an internal summary and issuing a customer refund should not inherit the same permissions."
+    },
+    {
+      "kind": "p",
+      "text": "An approval screen should show the proposed action, affected record, supporting evidence, and expected consequence. Reviewers need enough information to make a decision without repeating the entire investigation."
+    },
+    {
+      "kind": "p",
+      "text": "Also define what happens when approval is declined or no reviewer is available."
+    },
+    {
+      "kind": "quote",
+      "text": "Choose automation by the decisions it must make, the mistakes you can tolerate, and the evidence you need to trust its work."
+    },
+    {
+      "kind": "h2",
+      "text": "How to Run a Useful First Pilot"
+    },
+    {
+      "kind": "h3",
+      "text": "Choose One Specific Task"
+    },
+    {
+      "kind": "p",
+      "text": "Use a narrow objective such as “prepare enquiry summaries for review.” Avoid an initial brief as broad as “automate sales operations.”"
+    },
+    {
+      "kind": "h3",
+      "text": "Record the Current Baseline"
+    },
+    {
+      "kind": "p",
+      "text": "Measure current handling time, common errors, and exception frequency. Include the effort spent correcting work."
+    },
+    {
+      "kind": "h3",
+      "text": "Build a Representative Test Set"
+    },
+    {
+      "kind": "p",
+      "text": "Include routine cases alongside missing fields, duplicate submissions, contradictory instructions, and unavailable external systems. Use information you are authorized to process."
+    },
+    {
+      "kind": "h3",
+      "text": "Set Acceptance Criteria"
+    },
+    {
+      "kind": "p",
+      "text": "Specify what must be correct, what may require review, and which failures prevent release. Evaluate completed outcomes rather than how convincing the output sounds."
+    },
+    {
+      "kind": "h3",
+      "text": "Review Before Expanding"
+    },
+    {
+      "kind": "p",
+      "text": "Investigate failures by category. A missing source record, an incorrect interpretation, and a failed integration need different fixes."
+    },
+    {
+      "kind": "p",
+      "text": "Expand only when the pilot provides enough evidence that the process is useful and manageable."
+    },
+    {
+      "kind": "h2",
+      "text": "Frequently Asked Questions"
+    },
+    {
+      "kind": "h3",
+      "text": "Does every automated process need AI?"
+    },
+    {
+      "kind": "p",
+      "text": "No. If reliable rules and structured information are sufficient, a conventional workflow may cover the task. Add AI where interpretation or flexible investigation provides a measurable benefit."
+    },
+    {
+      "kind": "h3",
+      "text": "Can an AI agent operate without human review?"
+    },
+    {
+      "kind": "p",
+      "text": "Some bounded actions may run automatically. Decide this action by action, based on consequences, permissions, test results, and recovery options. Autonomy should be a deliberate design choice."
+    },
+    {
+      "kind": "h3",
+      "text": "Which should a business implement first?"
+    },
+    {
+      "kind": "p",
+      "text": "Start with a frequent task that has a clear owner, accessible information, and a result you can verify. Choose the simplest approach that meets those requirements."
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "title": "How to Improve Core Web Vitals: A Practical Website Audit",
+  "intro": [
+    "A website can look finished while still making visitors wait. The main image appears late, a menu hesitates after a tap, or a button moves just before someone clicks it. These problems affect different parts of the experience—and each needs a different fix.",
+    "To improve Core Web Vitals, start by identifying which pages and interactions are struggling. Then investigate the cause, prioritize changes, and check whether real visitors experience the improvement.",
+    "This guide walks through that process, from reading your first performance report to maintaining results after launch."
+  ],
+  "blocks": [
+    {
+      "kind": "h2",
+      "text": "What Are Core Web Vitals?"
+    },
+    {
+      "kind": "p",
+      "text": "Core Web Vitals measure loading performance, interaction responsiveness, and visual stability."
+    },
+    {
+      "kind": "table",
+      "text": "Metric\tWhat it measures\tGood threshold\nLargest Contentful Paint — LCP\tWhen the largest eligible visible image or text block appears\t2.5 seconds or less\nInteraction to Next Paint — INP\tHow quickly the page visually responds to interactions\t200 milliseconds or less\nCumulative Layout Shift — CLS\tUnexpected movement of visible content\t0.1 or less"
+    },
+    {
+      "kind": "p",
+      "text": "Assess these thresholds at the 75th percentile, separately for mobile and desktop. A passing assessment requires all three metrics to meet their respective targets. INP is the current responsiveness metric; older guides may still refer to First Input Delay."
+    },
+    {
+      "kind": "h3",
+      "text": "Do Core Web Vitals Affect SEO?"
+    },
+    {
+      "kind": "p",
+      "text": "Google uses Core Web Vitals in its ranking systems, but good scores do not guarantee top positions. Relevant, helpful content and the wider page experience still matter."
+    },
+    {
+      "kind": "p",
+      "text": "Treat performance as part of technical SEO and product quality. A fast page should also answer the visitor’s question, communicate clearly, and make the next action straightforward."
+    },
+    {
+      "kind": "h2",
+      "text": "Step 1: Audit Important Pages, Not Just Your Homepage"
+    },
+    {
+      "kind": "p",
+      "text": "Build a small sample around the journeys that matter to your business:"
+    },
+    {
+      "kind": "list",
+      "text": "A service page that attracts enquiries.\nA product or category page.\nA frequently visited article.\nA checkout, booking, or registration flow.\nA page with substantial filtering or interactive content."
+    },
+    {
+      "kind": "p",
+      "text": "For each page, record its purpose, device category, observed problem, and available performance measurements."
+    },
+    {
+      "kind": "p",
+      "text": "A useful audit entry is specific: “The product filter pauses after selection on mobile.” That gives the team something to reproduce and investigate."
+    },
+    {
+      "kind": "h2",
+      "text": "Step 2: Separate Real-User Evidence From Test Results"
+    },
+    {
+      "kind": "p",
+      "text": "Use PageSpeed Insights to examine available field data and lab diagnostics. Field data represents actual visitor experiences; lab tests help investigate issues under controlled conditions."
+    },
+    {
+      "kind": "p",
+      "text": "A standard Lighthouse navigation test does not measure INP directly because it does not exercise user interactions. Total Blocking Time can help diagnose responsiveness problems, but it is not an INP measurement."
+    },
+    {
+      "kind": "p",
+      "text": "Use field evidence to understand the problem and controlled testing to investigate it. Neither one replaces the other."
+    },
+    {
+      "kind": "p",
+      "text": "Keep test conditions consistent when comparing changes. Record the device settings, network simulation, page version, and whether you tested a first visit or repeat visit."
+    },
+    {
+      "kind": "h2",
+      "text": "Step 3: Improve LCP by Finding What Delays the Main Content"
+    },
+    {
+      "kind": "p",
+      "text": "Identify the actual LCP element before changing image settings. It may be a hero image, product photograph, or text block."
+    },
+    {
+      "kind": "p",
+      "text": "Then investigate where time is being spent:"
+    },
+    {
+      "kind": "list",
+      "text": "Server response: Is the initial HTML arriving slowly?\nResource discovery: Does the browser find the important image early?\nDownload time: Is the resource unnecessarily large?\nRendering: Has the resource loaded but remained hidden behind scripts or styles?"
+    },
+    {
+      "kind": "p",
+      "text": "For image-based LCP, serve an appropriately sized image and avoid lazy-loading the above-the-fold LCP image. Make it discoverable early, and use priority hints selectively."
+    },
+    {
+      "kind": "p",
+      "text": "Compression alone may not solve the problem. An image that downloads quickly can still appear late if the browser discovers it too late or must wait to render it."
+    },
+    {
+      "kind": "p",
+      "text": "Example to investigate: If a hero image starts downloading only after a carousel script runs, examine that dependency before repeatedly reducing image quality."
+    },
+    {
+      "kind": "h2",
+      "text": "Step 4: Improve INP by Testing Real Interactions"
+    },
+    {
+      "kind": "p",
+      "text": "Exercise the actions visitors actually perform: open navigation, choose a product variant, apply filters, expand an accordion, or submit a form."
+    },
+    {
+      "kind": "p",
+      "text": "Record a performance trace around a slow interaction. Investigate whether the delay happens before the event handler runs, during its processing, or while the browser prepares the visual update."
+    },
+    {
+      "kind": "p",
+      "text": "Potential fixes include splitting long tasks, reducing unnecessary JavaScript work, and simplifying expensive rendering. Allow the browser to display meaningful feedback before continuing nonessential processing."
+    },
+    {
+      "kind": "p",
+      "text": "For example, a filter should visibly acknowledge a selection. If loading results takes longer, show a clear loading state instead of leaving users unsure whether their tap registered."
+    },
+    {
+      "kind": "trace",
+      "text": ""
+    },
+    {
+      "kind": "h2",
+      "text": "Step 5: Improve CLS by Reserving Space"
+    },
+    {
+      "kind": "p",
+      "text": "Look for elements that change the layout after content becomes visible: images, advertisements, embedded media, promotional banners, or late-loading fonts."
+    },
+    {
+      "kind": "p",
+      "text": "Give images and videos dimensions or an appropriate aspect ratio. Reserve space for dynamically loaded components, and investigate font-related changes to text layout."
+    },
+    {
+      "kind": "p",
+      "text": "Test beyond the first screen. Layout shifts can also appear while scrolling or interacting with the page. A stable initial load does not prove the entire visit remains stable."
+    },
+    {
+      "kind": "p",
+      "text": "Example to investigate: A delivery message inserted above a purchase button may push that button away from a shopper’s pointer. Consider allocating space for the message within the original layout."
+    },
+    {
+      "kind": "h2",
+      "text": "Step 6: Prioritize Fixes by User Impact"
+    },
+    {
+      "kind": "p",
+      "text": "Turn findings into a decision list rather than treating every diagnostic warning as equally important."
+    },
+    {
+      "kind": "table",
+      "text": "Finding\tNext investigation\nMain content appears late across product pages\tInspect the shared template and LCP resource\nFilters hesitate on mobile\tProfile the interaction and rendering work\nPromotional content moves purchase controls\tInspect when content is inserted and space reserved\nOne test result differs sharply from others\tRepeat under comparable conditions"
+    },
+    {
+      "kind": "p",
+      "text": "For each issue, record the affected journey, supporting evidence, proposed fix, effort, and validation method."
+    },
+    {
+      "kind": "p",
+      "text": "A shared component deserves attention when it affects many important pages. A small visual issue on a rarely used page may reasonably wait."
+    },
+    {
+      "kind": "quote",
+      "text": "A performance score is a starting point. The real test is whether visitors can see, use, and trust the page without unnecessary delay."
+    },
+    {
+      "kind": "h2",
+      "text": "Step 7: Verify Changes Before Calling Them Improvements"
+    },
+    {
+      "kind": "p",
+      "text": "Retest the same pages under comparable conditions. Then check that the changes have preserved functionality: forms submit, images display correctly, analytics still work, and navigation remains accessible."
+    },
+    {
+      "kind": "p",
+      "text": "Monitor real-user performance after release. Keep a change log so the team can connect improvements or regressions to specific deployments."
+    },
+    {
+      "kind": "p",
+      "text": "Track business outcomes separately. Better performance and higher conversions occurring together do not, by themselves, prove that one caused the other."
+    },
+    {
+      "kind": "h2",
+      "text": "Keep Performance Part of Every Release"
+    },
+    {
+      "kind": "p",
+      "text": "Performance work continues after launch. New widgets, campaigns, images, and integrations can introduce fresh delays."
+    },
+    {
+      "kind": "p",
+      "text": "Assign an owner to each important third-party script. Review whether it remains necessary, what it contributes, and when it loads. Include representative user journeys in release checks so the team catches problems before they spread."
+    },
+    {
+      "kind": "p",
+      "text": "The most useful audit ends with clear decisions: what to change, why it matters, who owns it, and how the result will be verified."
+    }
+  ]
+}

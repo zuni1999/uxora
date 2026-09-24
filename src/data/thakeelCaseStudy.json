@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Thakeel Al-Arabia brings several related activities into one heavy equipment marketplace: buying machinery, finding rentals, sourcing spare parts, discovering workers, and connecting with businesses.",
+    "These activities share an industry, but they involve different decisions. An equipment buyer needs listing details and relevant specifications. Someone looking for a rental needs to identify suitable availability and contact the provider. A business searching for workers needs a clear way to review profiles and opportunities.",
+    "The experience is organized around those distinct goals. Category navigation helps people choose the right starting point, while search and listing details support a more focused evaluation.",
+    "Arabic and English layouts extend that approach across the interface, making language direction, navigation, and content hierarchy part of the product experience."
+  ],
+  "challenge": [
+    "The central design challenge was bringing multiple marketplace journeys together without making the platform difficult to navigate.",
+    "Equipment sales, rentals, spare parts, worker discovery, and business listings require different information. Treating every category identically could hide important details; separating them too heavily could make the platform feel fragmented.",
+    "The proposed structure addresses this through clear entry points and consistent interaction patterns. Users can start with their goal, narrow the available options, and review the information relevant to that category.",
+    "The bilingual experience adds another layer of complexity. Arabic layouts require considered right-to-left behavior across navigation, forms, filters, and mixed-language information such as prices and equipment model names.",
+    "The resulting design direction emphasizes three priorities: clear category selection, useful listing information, and consistent journeys across desktop and mobile."
+  ],
+  "features": [
+    {
+      "title": "Equipment Sales and Rental Discovery",
+      "text": "Dedicated browsing paths help users distinguish equipment available for purchase from rental opportunities. Listing information gives them a starting point for evaluating suitability before contacting the provider."
+    },
+    {
+      "title": "Search and Relevant Filters",
+      "text": "Search and filters help users narrow a broad marketplace by details such as brand, location, condition, and price range. Clear selections make it easier to understand and refine the current results."
+    },
+    {
+      "title": "Spare Parts Discovery",
+      "text": "A dedicated spare-parts category separates component searches from complete equipment listings. This gives users a more relevant starting point when sourcing parts for maintenance or repair."
+    },
+    {
+      "title": "Worker and Business Profiles",
+      "text": "Profiles provide a structured way for workers and businesses to present their services and experience. They support discovery alongside the equipment marketplace, connecting machinery needs with the people and organizations behind the work."
+    },
+    {
+      "title": "Guided Listing Creation",
+      "text": "Listing flows organize the information needed to present an offer. Category-specific inputs help contributors provide relevant details while keeping the overall publishing experience consistent."
+    },
+    {
+      "title": "Messaging and Saved Listings",
+      "text": "Messaging supports follow-up questions between marketplace participants. Saved listings let users return to options they want to review without repeating their search."
+    },
+    {
+      "title": "Arabic and English Interfaces",
+      "text": "The bilingual experience includes layouts suited to both reading directions. Navigation, content alignment, and form behavior should remain understandable in either language."
+    },
+    {
+      "title": "Responsive Web and App Experiences",
+      "text": "The design supports tasks across screen sizes, from browsing equipment on a phone to reviewing listings on a larger display. Shared patterns help users recognize familiar actions throughout the platform."
+    }
+  ]
+}

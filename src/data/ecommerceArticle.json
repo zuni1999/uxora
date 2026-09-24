@@ -1,0 +1,194 @@
+{
+  "title": "E-commerce Checkout UX: 10 Fixes That Reduce Friction",
+  "intro": [
+    "A shopper reaches checkout ready to buy. Then an unexpected delivery charge appears, the form rejects their address, or creating an account becomes compulsory. Each interruption gives them another reason to reconsider.",
+    "E-commerce checkout UX is about making that final decision clear and manageable. Customers should understand what they are paying, know when their order will arrive, and recover easily when something goes wrong. This guide explains ten improvements to investigate, test, and prioritize in your online store."
+  ],
+  "blocks": [
+    {
+      "kind": "h2",
+      "text": "Why Checkout Friction Costs You Customers"
+    },
+    {
+      "kind": "p",
+      "text": "A checkout can look polished and still be difficult to use. The problem may be an unclear delivery option, a field that requests unnecessary information, or a payment failure that leaves the customer unsure whether they have been charged."
+    },
+    {
+      "kind": "p",
+      "text": "Do not assume every abandoned cart signals a design problem. Some visitors are comparing prices or are not ready to purchase. Your audit should identify obstacles that prevent customers who want to buy from completing their order."
+    },
+    {
+      "kind": "p",
+      "text": "Start with three questions:"
+    },
+    {
+      "kind": "list",
+      "text": "Can customers understand the full cost before committing?\nCan they complete checkout without unnecessary effort?\nCan they correct mistakes without losing their progress?"
+    },
+    {
+      "kind": "h2",
+      "text": "10 Ways to Improve Your E-commerce Checkout UX"
+    },
+    {
+      "kind": "h3",
+      "text": "1. Make Guest Checkout Easy to Find"
+    },
+    {
+      "kind": "p",
+      "text": "Give first-time customers a clear way to purchase without registering. Place “Continue as guest” alongside the sign-in option, with enough visibility that shoppers do not mistake account creation for a requirement."
+    },
+    {
+      "kind": "p",
+      "text": "Offer account creation after purchase, when its benefits—such as order tracking or faster future purchases—are easier to explain."
+    },
+    {
+      "kind": "h3",
+      "text": "2. Explain Costs Before the Final Step"
+    },
+    {
+      "kind": "p",
+      "text": "Show the order subtotal, shipping charges, applicable taxes, and any additional fees before the customer submits payment. When a cost depends on location, explain that dependency and provide an estimate where possible."
+    },
+    {
+      "kind": "p",
+      "text": "For subscriptions, distinguish today’s payment from future recurring charges. A clear breakdown is more useful than a total that changes without explanation."
+    },
+    {
+      "kind": "h3",
+      "text": "3. Remove Fields You Do Not Need"
+    },
+    {
+      "kind": "p",
+      "text": "Review each field against a practical question: is this information necessary to fulfill the order? Remove unnecessary requests and clearly distinguish optional inputs."
+    },
+    {
+      "kind": "p",
+      "text": "Do not judge checkout quality by the number of pages alone. Baymard’s research indicates that the number of fields shoppers must consider generally matters more to usability than the number of steps."
+    },
+    {
+      "kind": "h3",
+      "text": "4. Make Mobile Forms Easier to Complete"
+    },
+    {
+      "kind": "p",
+      "text": "Use persistent field labels, appropriate mobile keyboards, and browser autofill. Customers should not have to remember a label after they start typing or manually reenter information their browser can supply."
+    },
+    {
+      "kind": "p",
+      "text": "Test the form on a real phone. Check whether the keyboard covers instructions, error messages, or the next action. Google’s web.dev guidance covers these payment and address-form practices."
+    },
+    {
+      "kind": "h3",
+      "text": "5. Help Customers Fix Errors"
+    },
+    {
+      "kind": "p",
+      "text": "Explain what needs correcting beside the relevant field. “Enter your postal code” is more useful than “Invalid information.” Keep valid entries intact so customers can fix one issue without repeating the whole form."
+    },
+    {
+      "kind": "p",
+      "text": "Check the experience with keyboard navigation and a screen reader as well. An error that is only communicated through a red border may go unnoticed."
+    },
+    {
+      "kind": "image",
+      "text": ""
+    },
+    {
+      "kind": "h3",
+      "text": "6. Explain Delivery Options Clearly"
+    },
+    {
+      "kind": "p",
+      "text": "Describe delivery choices using information customers can act on: cost, estimated arrival, and any conditions. Labels such as “Standard” and “Express” need supporting details."
+    },
+    {
+      "kind": "p",
+      "text": "If delivery estimates depend on a cutoff time or destination, make that clear. Customers should be able to choose an option without guessing what it means."
+    },
+    {
+      "kind": "h3",
+      "text": "7. Match Payment Options to Your Customers"
+    },
+    {
+      "kind": "p",
+      "text": "Review which payment methods your audience uses and which your business can reliably support. Then make those options understandable at the point of payment."
+    },
+    {
+      "kind": "p",
+      "text": "Test the complete experience, including external authentication, cancellation, and return to checkout. A payment method is only useful if customers can finish its flow and understand the result."
+    },
+    {
+      "kind": "h3",
+      "text": "8. Keep the Order Easy to Review and Edit"
+    },
+    {
+      "kind": "p",
+      "text": "Let shoppers verify products, quantities, selected variants, delivery details, and the final total before placing an order."
+    },
+    {
+      "kind": "p",
+      "text": "Provide clear edit actions. After an edit, preserve unrelated information and show any updated charges. Customers should not need to restart checkout to correct a size or change a delivery address."
+    },
+    {
+      "kind": "h3",
+      "text": "9. Make the Final Action Unambiguous"
+    },
+    {
+      "kind": "p",
+      "text": "Use a button label that explains the commitment being made. “Pay now” or “Place order” is clearer at the final step than a generic “Continue.”"
+    },
+    {
+      "kind": "p",
+      "text": "After submission, show a visible processing state and prevent repeated submissions. If confirmation is delayed, explain what is happening rather than leaving customers to wonder whether they should click again."
+    },
+    {
+      "kind": "h3",
+      "text": "10. Design Payment Recovery and Confirmation"
+    },
+    {
+      "kind": "p",
+      "text": "Plan for declined payments, interrupted connections, and delayed confirmations. Where possible, let customers retry or choose another method without losing their order details."
+    },
+    {
+      "kind": "p",
+      "text": "Display a success message only after the order is confirmed. Include an order reference, purchase summary, and next steps. When payment status is uncertain, communicate that uncertainty and provide a way to check it."
+    },
+    {
+      "kind": "quote",
+      "text": "A better checkout helps customers understand the cost, complete the purchase, and recover from mistakes without starting again."
+    },
+    {
+      "kind": "h2",
+      "text": "How to Measure Whether Your Checkout Is Improving"
+    },
+    {
+      "kind": "p",
+      "text": "Record a baseline before making changes. Define checkout completion consistently—for example, completed purchases divided by checkout starts within the same reporting period—and use that definition when comparing results."
+    },
+    {
+      "kind": "p",
+      "text": "Review performance by device, payment method, and new versus returning customers. An overall improvement can hide a problem affecting a smaller group."
+    },
+    {
+      "kind": "table",
+      "text": "Signal\tWhat to investigate\nDrop-off after delivery selection\tUnexpected costs, unclear timing, unavailable delivery options\nRepeated form errors\tConfusing labels, restrictive validation, autofill problems\nPayment failures\tProvider issues, authentication problems, unclear recovery\nMobile completion below desktop\tKeyboard behavior, difficult controls, layout problems"
+    },
+    {
+      "kind": "p",
+      "text": "Use these signals to guide investigation, not as proof of a cause. Observe customers completing realistic tasks, then test changes against the problems you find. Avoid changing several major elements at once if you need to understand which change helped."
+    },
+    {
+      "kind": "h2",
+      "text": "Start With the Problems Blocking Purchases"
+    },
+    {
+      "kind": "p",
+      "text": "Prioritize broken payment flows, lost form entries, and unclear totals before cosmetic refinements. Follow with improvements that reduce effort and make delivery, payment, and order review easier to understand."
+    },
+    {
+      "kind": "p",
+      "text": "The goal is a checkout customers can finish confidently—and a team that can explain, with evidence, why the experience improved."
+    }
+  ],
+  "readMinutes": 5
+}
