@@ -1,6 +1,7 @@
 const photos = import.meta.glob<string>('../assets/services/*.png', { eager: true, query: '?url', import: 'default' });
-export const serviceCover = (slug: string) => photos[`../assets/services/${slug}1.png`];
-export const servicePhoto = (slug: string) => photos[`../assets/services/${slug}.png`];
+const assetSlug = (slug: string) => slug === 'custom-software-development' ? 'web-app-development' : slug;
+export const serviceCover = (slug: string) => photos[`../assets/services/${assetSlug(slug)}1.png`];
+export const servicePhoto = (slug: string) => photos[`../assets/services/${assetSlug(slug)}.png`];
 
 type Detail = { intro: string; overview: string; included: string; groups: { title: string; items: string[] }[]; closing: string; photoAlt: string };
 export const serviceDetails: Record<string, Detail> = {
@@ -15,7 +16,7 @@ export const serviceDetails: Record<string, Detail> = {
     closing: 'Discover how our integrated approach to design and development can realize your brand image, engage your audience, and drive growth.',
     photoAlt: 'Design team reviewing website wireframes and interface concepts together',
   },
-  'web-app-development': {
+  'custom-software-development': {
     intro: 'Custom web and mobile applications built around your users, workflows, and business goals. We turn product ideas into reliable digital experiences that are ready to grow.',
     overview: 'We build websites, SaaS platforms, customer portals, and mobile applications from planning through launch. Our work brings responsive front-end interfaces together with maintainable back-end systems, APIs, and databases. We consider performance, security, accessibility, and real-world usage throughout development, so your team can manage and evolve the product with confidence.',
     included: 'From technical discovery to deployment, we create a clear delivery plan and build the features your users need, with testing and documentation to support the next stage of your product.',

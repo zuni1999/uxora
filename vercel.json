@@ -1,9 +1,70 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/work/givit",
+      "destination": "/work/geviti",
+      "permanent": true
+    },
+    {
+      "source": "/services/web-app-development",
+      "destination": "/services/custom-software-development",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/contact",
+      "destination": "/contact.html"
+    },
+    {
+      "source": "/insights",
+      "destination": "/insights.html"
+    },
+    {
+      "source": "/work/geviti",
+      "destination": "/work/geviti.html"
+    },
+    {
+      "source": "/work/thakeel-al-arabia",
+      "destination": "/work/thakeel-al-arabia.html"
+    },
+    {
+      "source": "/insights/ecommerce-checkout-ux",
+      "destination": "/insights/ecommerce-checkout-ux.html"
+    },
+    {
+      "source": "/insights/improve-core-web-vitals",
+      "destination": "/insights/improve-core-web-vitals.html"
+    },
+    {
+      "source": "/insights/ai-agents-vs-workflow-automation",
+      "destination": "/insights/ai-agents-vs-workflow-automation.html"
+    },
+    {
+      "source": "/services/web-app-design",
+      "destination": "/services/web-app-design.html"
+    },
+    {
+      "source": "/services/custom-software-development",
+      "destination": "/services/custom-software-development.html"
+    },
+    {
+      "source": "/services/ai-automation",
+      "destination": "/services/ai-automation.html"
+    },
+    {
+      "source": "/services/product-design",
+      "destination": "/services/product-design.html"
+    },
+    {
+      "source": "/services/e-commerce",
+      "destination": "/services/e-commerce.html"
+    },
+    {
+      "source": "/services/cloud-integration",
+      "destination": "/services/cloud-integration.html"
     }
   ]
 }

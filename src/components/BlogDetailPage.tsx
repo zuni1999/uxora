@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ArrowUpRight, CalendarDays, Check, Copy, Hourglass } from 'lucide-react';
 import ecommerceArticle from '../data/ecommerceArticle.json';
 import automationArticle from '../data/automationArticle.json';
@@ -12,24 +12,11 @@ import gradientQuote from '../assets/blog/gradient-quote.svg';
 
 export default function BlogDetailPage({ webVitals = false, automation = false }: { webVitals?: boolean; automation?: boolean }) {
   const article = automation ? automationArticle : webVitals ? webVitalsArticle : ecommerceArticle;
-  const seoTitle = automation ? 'AI Agents vs. Workflow Automation: A Business Guide | UXORA' : webVitals ? 'How to Improve Core Web Vitals: Website Audit | UXORA' : 'E-commerce Checkout UX: 10 Practical Fixes | UXORA';
-  const description = automation ? 'Compare AI agents and workflow automation with practical business examples, cost considerations, approval controls, and a framework for choosing the right approach.' : webVitals ? 'Learn how to improve Core Web Vitals with a practical audit of LCP, INP, and CLS. Identify bottlenecks, prioritize fixes, and verify real-user improvements.' : 'Improve e-commerce checkout UX with 10 practical fixes for forms, delivery costs, payment flows, and mobile usability, plus a measurement checklist.';
   const ctaTitle = automation ? 'Build Automation Around a Clear Business Outcome' : webVitals ? 'Build a Website That Feels Faster' : 'Where Are Customers Getting Stuck?';
   const ctaText = automation ? 'UXORA helps businesses design AI automation and connected workflows around their operational needs. Whether you need a defined process or a bounded AI agent, start with a focused use case and a practical evaluation plan.' : webVitals ? 'UXORA combines web development and UX design to help businesses improve their digital experiences. If your website feels slow or difficult to use, let’s identify the bottlenecks and define a practical improvement plan.' : 'UXORA helps businesses improve e-commerce experiences through UX design and development. Let’s review your buying journey and identify the changes worth prioritizing.';
   const ctaButton = automation ? 'Discuss Your Automation Project' : webVitals ? 'Discuss Your Website' : 'Discuss Your E-commerce Project';
   const readMinutes = Math.max(1, Math.ceil([article.title, ...article.intro, ...article.blocks.map(block => block.text), ctaTitle, ctaText].join(' ').split(/\s+/).length / 200));
   const [copyStatus, setCopyStatus] = useState('Copy link');
-  useEffect(() => {
-    const oldTitle = document.title;
-    document.title = seoTitle;
-    const existing = document.querySelector<HTMLMetaElement>('meta[name="description"]');
-    const meta = existing ?? document.createElement('meta');
-    const previous = meta.content;
-    meta.name = 'description';
-    meta.content = description;
-    if (!existing) document.head.append(meta);
-    return () => { document.title = oldTitle; if (existing) meta.content = previous; else meta.remove(); };
-  }, [seoTitle, description]);
   async function copyLink() {
     try { await navigator.clipboard.writeText(window.location.href); setCopyStatus('Link copied'); }
     catch { setCopyStatus('Copy the URL from your address bar'); }

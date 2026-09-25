@@ -17,7 +17,13 @@ import ServiceDetailPage from './components/ServiceDetailPage';
 import ratingAvatar from './assets/rating-avatar.png';
 
 const email = 'tech.uxora@gmail.com';
-const links = ['Home', 'About Us', 'Services', 'Work', 'Insights'];
+const links = [
+  { label: 'Home', href: '/#home' },
+  { label: 'About Us', href: '/#about-us' },
+  { label: 'Services', href: '/#services' },
+  { label: 'Work', href: '/#work' },
+  { label: 'Insights', href: '/#insights' },
+];
 
 export default function App() {
   const serviceSlug = window.location.pathname.match(/^\/services\/([^/]+)\/?$/)?.[1];
@@ -36,6 +42,48 @@ export default function App() {
     return () => window.removeEventListener('scroll', updateScroll);
   }, []);
 
+  useEffect(() => {
+    // A cross-page hash can arrive before React has mounted its target.
+    // Wait for fonts and initial images so the portfolio's measured height
+    // is settled before choosing the section's final scroll position.
+    if (window.location.pathname !== '/' || !window.location.hash) return;
+    const initialHash = window.location.hash;
+    let cancelled = false;
+    let firstFrame = 0;
+    let secondFrame = 0;
+    const cancel = () => { cancelled = true; };
+    const navigateToSection = async () => {
+      await document.fonts.ready;
+      if (cancelled) return;
+      firstFrame = requestAnimationFrame(() => {
+        secondFrame = requestAnimationFrame(() => {
+          if (cancelled || window.location.hash !== initialHash) return;
+          const target = document.getElementById(initialHash.slice(1));
+          target?.scrollIntoView({
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+            block: 'start',
+          });
+        });
+      });
+    };
+    if (document.readyState === 'complete') void navigateToSection();
+    else window.addEventListener('load', navigateToSection, { once: true });
+    window.addEventListener('wheel', cancel, { passive: true });
+    window.addEventListener('touchstart', cancel, { passive: true });
+    window.addEventListener('pointerdown', cancel);
+    window.addEventListener('keydown', cancel);
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(firstFrame);
+      cancelAnimationFrame(secondFrame);
+      window.removeEventListener('load', navigateToSection);
+      window.removeEventListener('wheel', cancel);
+      window.removeEventListener('touchstart', cancel);
+      window.removeEventListener('pointerdown', cancel);
+      window.removeEventListener('keydown', cancel);
+    };
+  }, []);
+
   async function copyEmail() {
     try {
       await navigator.clipboard.writeText(email);
@@ -51,15 +99,15 @@ export default function App() {
       <header className={`site-header${isScrolled ? ' is-scrolled' : ''}`}>
         <a className="brand" href="/" aria-label="UXORA home"><img src={logo} alt="UXORA" /></a>
         <nav className={menuOpen ? 'navigation is-open' : 'navigation'} aria-label="Main navigation">
-          {links.map((link) => (
-            <a key={link} href={link === 'Home' ? '/' : link === 'About Us' ? '/#about-us' : link === 'Services' ? '/#services' : link === 'Work' ? '/#work' : `/${link.toLowerCase().replaceAll(' ', '-')}`} aria-current={link === 'Home' && !isContactPage && !isCaseStudy && !serviceSlug && !isInsightsPage && !isBlogPage ? 'page' : link === 'Insights' && (isInsightsPage || isBlogPage) ? 'page' : undefined} onClick={() => setMenuOpen(false)}>{link}</a>
+          {links.map(({ label, href }) => (
+            <a key={label} href={href} aria-current={label === 'Home' && !isContactPage && !isCaseStudy && !serviceSlug && !isInsightsPage && !isBlogPage ? 'page' : label === 'Insights' && (isInsightsPage || isBlogPage) ? 'page' : undefined} onClick={() => setMenuOpen(false)}>{label}</a>
           ))}
         </nav>
         <a className="talk-button" href="/contact">Let’s Talk <span><ArrowRight /></span></a>
         <button className="menu-toggle" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button>
       </header>
       {isBlogPage ? <BlogDetailPage automation={window.location.pathname.includes("ai-agents-vs-workflow-automation")} webVitals={window.location.pathname.includes("improve-core-web-vitals")} /> : isInsightsPage ? <main><InsightsSection standalone /></main> : isContactPage ? <ContactPage /> : isCaseStudy ? (window.location.pathname.includes("thakeel-al-arabia") ? <ThakeelCaseStudy /> : <GevitiCaseStudy />) : serviceSlug ? <ServiceDetailPage slug={serviceSlug} /> : <main>
-        <section className="hero" aria-labelledby="hero-title">
+        <section id="home" className="hero" aria-labelledby="hero-title">
           <div className="hero-copy">
             <div className="eyebrow"><span className="brand-mark" aria-hidden="true" /> AI, PRODUCT DESIGN &amp; DEVELOPMENT AGENCY</div>
             <h1 id="hero-title">We design and build<br /><span>digital products</span> that scale.</h1>

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { ArrowUpRight, LayoutGrid, Languages, Network } from 'lucide-react';
 import overview from '../assets/case-study/thakeel-casestudy1.jpg';
 import mobile from '../assets/case-study/thakeel-casestudy2.jpg';
@@ -17,17 +16,6 @@ const highlights = [
 ];
 
 export default function ThakeelCaseStudy() {
-  useEffect(() => {
-    const previousTitle = document.title;
-    document.title = 'Thakeel Al-Arabia Marketplace Case Study | UXORA';
-    const existing = document.querySelector<HTMLMetaElement>('meta[name="description"]');
-    const meta = existing ?? document.createElement('meta');
-    const previous = meta.content;
-    meta.name = 'description';
-    meta.content = 'Explore Thakeel Al-Arabia’s heavy equipment marketplace case study, covering Arabic and English UX, equipment discovery, rentals, and professional profiles.';
-    if (!existing) document.head.append(meta);
-    return () => { document.title = previousTitle; if (existing) meta.content = previous; else meta.remove(); };
-  }, []);
   return (
     <main className="case-page thakeel-case">
       <header className="case-intro">

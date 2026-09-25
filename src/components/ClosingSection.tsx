@@ -55,7 +55,7 @@ export default function ClosingSection({ showBanner = true }: { showBanner?: boo
               <a href="https://uk.pinterest.com/uxoratech/" target="_blank" rel="noopener noreferrer" aria-label="UXORA on Pinterest (opens in a new tab)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0a12 12 0 0 0-4.37 23.18c-.06-1.02-.01-2.25.25-3.39l1.54-6.53s-.38-.77-.38-1.91c0-1.79 1.04-3.13 2.33-3.13 1.1 0 1.63.83 1.63 1.83 0 1.12-.71 2.78-1.07 4.32-.3 1.29.65 2.34 1.92 2.34 2.3 0 3.85-2.95 3.85-6.45 0-2.66-1.79-4.66-5.05-4.66-3.69 0-5.99 2.75-5.99 5.82 0 1.06.31 1.8.8 2.38.23.27.26.38.18.69l-.26 1c-.09.32-.33.44-.61.32-1.68-.69-2.46-2.54-2.46-4.62 0-3.44 2.9-7.57 8.65-7.57 4.62 0 7.66 3.35 7.66 6.95 0 4.76-2.65 8.31-6.56 8.31-1.31 0-2.54-.71-2.96-1.51l-.85 3.34c-.31 1.17-.92 2.35-1.48 3.27A12 12 0 1 0 12 0Z" /></svg></a>
             </div>
           </div>
-          <nav className="footer-navigation" aria-label="Footer navigation"><h3>Navigation</h3><a href="/">Home</a><a href="/#about-us">About</a><a href="/#services">Services</a><a href="/insights">Insights</a></nav>
+          <nav className="footer-navigation" aria-label="Footer navigation"><h3>Navigation</h3><a href="/#home">Home</a><a href="/#about-us">About</a><a href="/#services">Services</a><a href="/#insights">Insights</a></nav>
           <div className="footer-contacts"><h3>Contact</h3><a href="mailto:tech.uxora@gmail.com">tech.uxora@gmail.com</a><a className="footer-phone" href="tel:+447901757510">+44 7901 757510</a><a href="https://uxora.co">uxora.co</a></div>
         </div>
         <div className="footer-legal"><p>© 2026 UXORA. All rights reserved.</p><p>UXORA | AI, Product Design &amp; Web Development Agency</p></div>
