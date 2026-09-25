@@ -1,0 +1,44 @@
+{
+  "timeline": "Not specified",
+  "role": "UX Design & Development",
+  "title": "EZ Wage — Earned Wage Access & Financial Wellness",
+  "introduction": "A financial wellness platform helping eligible employees access earned wages before payday. EZ Wage connects employee salary access with employer payroll processes, alongside financing and payment services for businesses.",
+  "about": [
+    "EZ Wage addresses the gap between earning a salary and receiving it on a scheduled payday. Through participating employers, eligible employees can access part of their accrued wages and track their available balance.",
+    "The website introduces this service to two audiences with different priorities. Employees need to understand access, withdrawals and payday deductions. Employers need information about eligibility, onboarding and coordination with existing payroll processes.",
+    "Alongside earned wage access, EZ Wage presents payroll financing, invoice factoring and payment gateway services. The website brings these offerings together while providing routes to product information, frequently asked questions and the team."
+  ],
+  "challenge": [
+    "The central communication challenge is making a financial service understandable before asking visitors to take the next step. Employees need a clear distinction between wages already earned and their full monthly salary, while employers need to understand their responsibilities within the process.",
+    "A second challenge is presenting several related services without making them appear interchangeable. Earned wage access, payroll financing, invoice factoring and payment processing address different needs. Each requires its own explanation and a clear place within the website.",
+    "For this type of experience, useful detail matters more than broad promises. Clear service descriptions, audience-specific information and accessible answers help visitors assess whether an offering is relevant to them."
+  ],
+  "features": [
+    {
+      "title": "Earned Wage Access",
+      "text": "Eligible employees can access a portion of wages they have already earned before their scheduled payday, subject to the employer’s arrangement and applicable service terms."
+    },
+    {
+      "title": "Salary Visibility",
+      "text": "The employee experience includes information about available withdrawal balances, account activity and amounts due to be deducted on payday."
+    },
+    {
+      "title": "Employer Controls",
+      "text": "Employer controls support employee eligibility and account management, allowing participating businesses to coordinate access with their workforce and payroll requirements."
+    },
+    {
+      "title": "Payroll Connectivity",
+      "text": "EZ Wage describes support for connecting with existing HR and payroll systems, with employee data uploads available where a business does not use an HR management system."
+    },
+    {
+      "title": "Business Financing Options",
+      "text": "Payroll financing and invoice factoring are presented as separate services for businesses managing payment obligations and outstanding invoices."
+    },
+    {
+      "title": "Payment Gateway Services",
+      "text": "A dedicated service introduces online payment processing, transaction confirmations and reporting for businesses accepting digital payments."
+    }
+  ],
+  "featureIntroduction": "EZ Wage’s offering connects employee wage access with employer coordination and a wider set of business financial services.",
+  "closing": "The website connects these services through product explanations, employer and employee information, FAQs and a route to request a demonstration."
+}

@@ -1,0 +1,37 @@
+{
+  "timeline": "1 Month",
+  "role": "UI/UX & Mobile App Design",
+  "title": "AI Calorie, Heart Rate Tracker — Everyday Wellness, Connected",
+  "introduction": "An Android wellness app bringing AI meal logging, heart rate tracking, hydration goals and eye-rest reminders into one daily experience.",
+  "about": [
+    "AI Calorie, Heart Rate Tracker supports everyday self-tracking through meal entries, heart rate records, hydration tracking and eye-rest activity.",
+    "The experience brings these routines together so users can review their day without moving between separate tools. It is intended for general wellness, not medical diagnosis or treatment."
+  ],
+  "challenge": [
+    "The design problem is balancing a useful overview with focused individual tasks. Someone logging a meal has a different immediate goal from someone reviewing a heart rate entry or recording a glass of water. Each journey needs a clear starting point without making the home screen feel crowded.",
+    "Different measurements also require different visual treatment. A daily total, a single reading and a completed activity should remain easy to distinguish. Consistent navigation can connect these experiences while clear labels preserve their individual meaning.",
+    "Trust is another important consideration. The interface should explain what each feature records and avoid presenting general wellness information as a clinical conclusion. Helpful guidance should support users without overwhelming the task they came to complete."
+  ],
+  "features": [
+    {
+      "title": "AI-Assisted Meal Logging",
+      "text": "Meal scanning supports calorie entries and daily food records."
+    },
+    {
+      "title": "Heart Rate History",
+      "text": "Recorded BPM readings can be reviewed through daily and historical logs."
+    },
+    {
+      "title": "Hydration Goals",
+      "text": "Water logging and reminders support daily intake tracking."
+    },
+    {
+      "title": "Eye-Rest Activity",
+      "text": "Reminders and completed-exercise logs support regular screen breaks."
+    },
+    {
+      "title": "Daily Overview",
+      "text": "A combined dashboard brings the app’s tracking areas together."
+    }
+  ]
+}

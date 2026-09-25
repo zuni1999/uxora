@@ -31,8 +31,8 @@ export default function BlogDetailPage({ webVitals = false, automation = false }
         <div className="blog-intro">{article.intro.map((text) => <p key={text}>{text}</p>)}</div>
         <img className="blog-cover" src={automation ? automationCover : webVitals ? webCover : cover} alt={automation ? "Connected blue and green modules illustrating a fixed automation workflow and branching AI decisions." : webVitals ? "Developer reviewing a website performance audit on a laptop beside a mobile website preview." : "Shopper completing an online checkout on a smartphone beside a laptop"} width="1448" height="1086" fetchPriority="high" />
         <div className="blog-byline">
-          {!webVitals && !automation && <div className="blog-author"><span className="blog-author-icon"><span className="brand-mark" aria-hidden="true" /></span><div><small>Post By</small><strong>UXORA Team</strong></div></div>}
-          <div className="blog-publication">{!webVitals && !automation && <span><CalendarDays /><time dateTime="2025-07-31">July 31, 2025</time></span>}<span><Hourglass />{readMinutes} Min Read</span></div>
+          <div className="blog-author"><span className="blog-author-icon"><span className="brand-mark" aria-hidden="true" /></span><div><small>Post By</small><strong>UXORA Team</strong></div></div>
+          <div className="blog-publication"><span><CalendarDays /><time dateTime="2025-07-31">July 31, 2025</time></span><span><Hourglass />{readMinutes} Min Read</span></div>
         </div>
         <div className="blog-body">
           {article.blocks.map((block, index) => {

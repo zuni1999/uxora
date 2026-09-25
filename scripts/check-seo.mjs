@@ -22,4 +22,4 @@ assert.deepEqual([0,1,2].map(i=>ico[6+i*16]),[16,32,48]);
 for (const [name,size] of [['favicon-96x96.png',96],['apple-touch-icon.png',180]]) {
   const png=readFileSync(`dist/${name}`);assert.equal(png.readUInt32BE(16),size);assert.equal(png.readUInt32BE(20),size);
 }
-console.log('SEO checks passed: 14 page heads, canonical sitemap, matching Vercel routes, icon files and dimensions.');
+console.log(`SEO checks passed: ${Object.keys(pages).length} page heads, canonical sitemap, matching Vercel routes, icon files and dimensions.`);

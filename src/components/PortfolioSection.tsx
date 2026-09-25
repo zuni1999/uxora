@@ -8,8 +8,8 @@ import calorie from '../assets/projects/al-calorie.jpg';
 const projects = [
   { title: 'Geviti — Personalized Health & Longevity Platform', image: geviti, category: 'Web Development', description: 'AI-powered insights to help members better understand and optimize their long-term health.' },
   { title: 'Thakeel Al-Arabia — Heavy Equipment Marketplace', image: thakeel, category: 'Web & App Development · UI/UX Design', description: 'A connected marketplace for buying, selling and renting heavy equipment across the GCC.' },
-  { title: 'EZ Wage — Everyday Is Payday', image: ezwage, category: 'Web & App Development · Fintech', description: 'A digital platform for earned wage access, payroll financing and everyday financial flexibility.' },
-  { title: 'AI Health — Calorie & Heart Rate Tracker', image: calorie, category: 'Mobile Apps · UI/UX Design', description: 'An intelligent wellness companion for calorie tracking, heart-rate monitoring and daily health habits.' },
+  { title: 'EZ Wage — Earned Wage Access & Financial Wellness', image: ezwage, category: 'FinTech / Financial Wellness', description: 'A financial services website connecting employee wage access, employer information and business financing solutions.' },
+  { title: 'AI Calorie, Heart Rate Tracker', image: calorie, category: 'Mobile App / Health & Fitness', description: 'A connected mobile experience for everyday wellness tracking.' },
 ];
 const keywords = [
   ['Web Design', 'Product Strategy', 'Design Systems', 'Platform Engineering', 'UX/UI Design', 'Cloud-Native Development', 'Custom Software Development'],
@@ -104,6 +104,8 @@ export default function PortfolioSection() {
             <div className="portfolio-track" ref={trackRef}>
               {projects.map((project) => <article className="project-card" key={project.title}>
                 <button className="project-cover" aria-label={`View ${project.title}`} onClick={() => {
+                  if (project.image === calorie) { window.location.href = '/work/ai-calorie-heart-rate-tracker'; return; }
+                  if (project.image === ezwage) { window.location.href = '/work/ez-wage'; return; }
                   if (project.image === thakeel) { window.location.href = '/work/thakeel-al-arabia'; return; }
                   if (project.image === geviti) { window.location.href = '/work/geviti'; return; }
                   if (previewRef.current) { previewRef.current.src = project.image; previewRef.current.alt = project.title; }

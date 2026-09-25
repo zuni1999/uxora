@@ -15,8 +15,8 @@ const articles = [
     alt: 'Shopper completing an online checkout on a smartphone beside a laptop',
   },
   {
-    date: undefined,
-    dateLabel: undefined,
+    date: '2025-07-31',
+    dateLabel: 'July 31, 2025',
     href: '/insights/improve-core-web-vitals',
     category: 'Web Development',
     title: 'How to Improve Core Web Vitals: A Practical Website Audit',
@@ -25,8 +25,8 @@ const articles = [
     alt: 'A development team working on web and mobile applications',
   },
   {
-    date: undefined,
-    dateLabel: undefined,
+    date: '2025-07-31',
+    dateLabel: 'July 31, 2025',
     href: '/insights/ai-agents-vs-workflow-automation',
     category: 'AI Automation',
     title: 'AI Agents vs. Workflow Automation: Which Does Your Business Need?',

@@ -884,3 +884,54 @@ html { scroll-behavior: smooth; }
 #home { scroll-margin-top: max(88px, 6.64vw); }
 @media (max-width: 700px) { #home { scroll-margin-top: 80px; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* The padded dropdown keeps the hover target connected to its trigger. */
+.services-navigation { position: relative; }
+.services-navigation-trigger { display: flex; align-items: center; gap: 4px; }
+.services-navigation-trigger button { display: grid; place-items: center; padding: 4px; border: 0; background: transparent; color: inherit; cursor: pointer; }
+.services-navigation-trigger button svg { width: 14px; height: 14px; transition: transform .2s; }
+.services-navigation-trigger button[aria-expanded="true"] svg { transform: rotate(180deg); }
+.services-dropdown { position: absolute; top: 100%; left: -20px; padding-top: 18px; width: max-content; min-width: 280px; z-index: 110; }
+.services-dropdown[hidden] { display: none; }
+.services-dropdown ul { list-style: none; margin: 0; padding: 10px; border: 1px solid #e9e9ee; border-radius: 16px; background: #fff; box-shadow: 0 16px 40px #00000018; }
+.navigation .services-dropdown a { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px 12px; border-radius: 9px; font-size: 15px; text-transform: none; transition: color .2s, background .2s; }
+.navigation .services-dropdown a:hover, .navigation .services-dropdown a:focus-visible { background: #f2f5ff; color: #0851dd; }
+.services-dropdown a svg { width: 17px; height: 17px; flex-shrink: 0; }
+@media (max-width: 700px) {
+  .navigation.is-open { max-height: calc(100dvh - 100px); overflow-y: auto; }
+  .services-navigation { width: 100%; }
+  .services-navigation-trigger { justify-content: space-between; }
+  .services-navigation-trigger button { padding: 8px; }
+  .services-dropdown { position: static; width: 100%; min-width: 0; padding-top: 10px; }
+  .services-dropdown ul { box-shadow: none; background: #f7f7fa; }
+  .navigation .services-dropdown a { white-space: normal; font-size: 14px; padding: 12px 8px; }
+}
+
+.ezwage-case .case-metadata:not(:has(> div:nth-child(3))) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ezwage-case .case-results { grid-template-columns: minmax(0, 1fr); }
+.ezwage-case .case-result { grid-template-columns: 3.6vw 12vw 1fr; }
+.ezwage-case .case-full-image { border-radius: .85vw; }
+.case-scope-label { color: #666; font-size: 1.2vw; margin: 0 0 1.4vw; }
+@media (max-width: 700px) {
+  .ezwage-case .case-result { grid-template-columns: 32px minmax(0, 1fr); }
+  .ezwage-case .case-result p { grid-column: 2; }
+  .ezwage-case .case-full-image { border-radius: 12px; }
+  .case-scope-label { font-size: 14px; margin-bottom: 20px; }
+}
+
+@media (max-width: 700px) {
+  .ezwage-case .case-talk h2 { font-size: clamp(24px, 7.5vw, 42px); }
+}
+
+.ai-calorie-case .case-metadata:not(:has(> div:nth-child(3))) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ai-calorie-case .case-results { grid-template-columns: minmax(0, 1fr); }
+.ai-calorie-case .case-result { grid-template-columns: 3.6vw 17vw 1fr; }
+.ai-calorie-case .case-result strong { white-space: normal; }
+.ai-calorie-case .case-full-image { border-radius: .85vw; }
+.ai-calorie-case .case-talk h2 { font-size: 6vw; }
+@media (max-width: 700px) {
+  .ai-calorie-case .case-result { grid-template-columns: 32px minmax(0, 1fr); }
+  .ai-calorie-case .case-result p { grid-column: 2; }
+  .ai-calorie-case .case-full-image { border-radius: 12px; }
+  .ai-calorie-case .case-talk h2 { font-size: clamp(22px, 6vw, 40px); }
+}

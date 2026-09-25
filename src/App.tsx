@@ -13,7 +13,10 @@ import ClosingSection from './components/ClosingSection';
 import ContactPage from './components/ContactPage';
 import GevitiCaseStudy from './components/GevitiCaseStudy';
 import ThakeelCaseStudy from './components/ThakeelCaseStudy';
+import AiCalorieCaseStudy from './components/AiCalorieCaseStudy';
+import EzWageCaseStudy from './components/EzWageCaseStudy';
 import ServiceDetailPage from './components/ServiceDetailPage';
+import ServicesNavigation from './components/ServicesNavigation';
 import ratingAvatar from './assets/rating-avatar.png';
 
 const email = 'tech.uxora@gmail.com';
@@ -30,7 +33,7 @@ export default function App() {
   const isBlogPage = /^\/insights\/(ecommerce-checkout-ux|improve-core-web-vitals|ai-agents-vs-workflow-automation)\/?$/.test(window.location.pathname);
   const isInsightsPage = /^\/insights\/?$/.test(window.location.pathname);
   const isContactPage = /^\/contact\/?$/.test(window.location.pathname);
-  const isCaseStudy = /^\/work\/(geviti|givit|thakeel-al-arabia)\/?$/.test(window.location.pathname);
+  const isCaseStudy = /^\/work\/(geviti|givit|thakeel-al-arabia|ez-wage|ai-calorie-heart-rate-tracker)\/?$/.test(window.location.pathname);
   const [menuOpen, setMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -99,14 +102,16 @@ export default function App() {
       <header className={`site-header${isScrolled ? ' is-scrolled' : ''}`}>
         <a className="brand" href="/" aria-label="UXORA home"><img src={logo} alt="UXORA" /></a>
         <nav className={menuOpen ? 'navigation is-open' : 'navigation'} aria-label="Main navigation">
-          {links.map(({ label, href }) => (
+          {links.map(({ label, href }) => label === 'Services' ? (
+            <ServicesNavigation key={label} onNavigate={() => setMenuOpen(false)} />
+          ) : (
             <a key={label} href={href} aria-current={label === 'Home' && !isContactPage && !isCaseStudy && !serviceSlug && !isInsightsPage && !isBlogPage ? 'page' : label === 'Insights' && (isInsightsPage || isBlogPage) ? 'page' : undefined} onClick={() => setMenuOpen(false)}>{label}</a>
           ))}
         </nav>
         <a className="talk-button" href="/contact">Let’s Talk <span><ArrowRight /></span></a>
         <button className="menu-toggle" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button>
       </header>
-      {isBlogPage ? <BlogDetailPage automation={window.location.pathname.includes("ai-agents-vs-workflow-automation")} webVitals={window.location.pathname.includes("improve-core-web-vitals")} /> : isInsightsPage ? <main><InsightsSection standalone /></main> : isContactPage ? <ContactPage /> : isCaseStudy ? (window.location.pathname.includes("thakeel-al-arabia") ? <ThakeelCaseStudy /> : <GevitiCaseStudy />) : serviceSlug ? <ServiceDetailPage slug={serviceSlug} /> : <main>
+      {isBlogPage ? <BlogDetailPage automation={window.location.pathname.includes("ai-agents-vs-workflow-automation")} webVitals={window.location.pathname.includes("improve-core-web-vitals")} /> : isInsightsPage ? <main><InsightsSection standalone /></main> : isContactPage ? <ContactPage /> : isCaseStudy ? (window.location.pathname.includes("ai-calorie-heart-rate-tracker") ? <AiCalorieCaseStudy /> : window.location.pathname.includes("ez-wage") ? <EzWageCaseStudy /> : window.location.pathname.includes("thakeel-al-arabia") ? <ThakeelCaseStudy /> : <GevitiCaseStudy />) : serviceSlug ? <ServiceDetailPage slug={serviceSlug} /> : <main>
         <section id="home" className="hero" aria-labelledby="hero-title">
           <div className="hero-copy">
             <div className="eyebrow"><span className="brand-mark" aria-hidden="true" /> AI, PRODUCT DESIGN &amp; DEVELOPMENT AGENCY</div>

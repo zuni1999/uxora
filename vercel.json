@@ -65,6 +65,14 @@
     {
       "source": "/services/cloud-integration",
       "destination": "/services/cloud-integration.html"
+    },
+    {
+      "source": "/work/ez-wage",
+      "destination": "/work/ez-wage.html"
+    },
+    {
+      "source": "/work/ai-calorie-heart-rate-tracker",
+      "destination": "/work/ai-calorie-heart-rate-tracker.html"
     }
   ]
 }

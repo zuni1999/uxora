@@ -3,6 +3,8 @@ import { dirname } from 'node:path';
 export const origin = 'https://www.uxora.co';
 export const pages = {
   '/': ['UXORA | Custom Software Development & AI Automation', 'UXORA designs and develops custom websites, mobile apps and AI automations. Turn your business ideas into intuitive digital products built to scale.'],
+  '/work/ez-wage': ['EZ Wage FinTech Website Case Study | UXORA', 'Explore the EZ Wage website case study: earned wage access, employer and employee journeys, payroll information and business financial services.'],
+  '/work/ai-calorie-heart-rate-tracker': ['AI Calorie & Heart Rate App Case Study | UXORA', 'Explore the AI Calorie, Heart Rate Tracker case study, featuring meal logging, hydration reminders and a connected daily wellness dashboard.'],
   '/contact': ['Contact Us | UXORA', 'Discuss your next digital product with UXORA. Get in touch about custom software, web and mobile apps, design, and AI automation.'],
   '/insights': ['Insights | UXORA', 'Explore UXORA articles on e-commerce UX, website performance, AI agents, and workflow automation.'],
   '/work/geviti': ['Geviti — Personalized Health & Longevity Platform | UXORA', 'Explore UXORA’s Geviti case study: a connected health and longevity experience bringing testing, personalized insights, and care together.'],
@@ -18,6 +20,10 @@ for (const match of services.matchAll(/slug: '([^']+)', title: '([^']+)', image:
 const escape = value => value.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 export function head(path) {
   const [title, description] = pages[path];
+  const isAiCalorie = path === '/work/ai-calorie-heart-rate-tracker';
+  const isEzWage = path === '/work/ez-wage';
+  const image = isAiCalorie ? '/images/case-study/ai-calorie1.jpg' : isEzWage ? '/images/case-study/ezwage1.jpg' : '/uxora-social.png';
+  const imageAlt = isAiCalorie ? 'AI Health mobile screens for meal logging, heart rate, hydration and eye rest' : isEzWage ? 'EZ Wage mobile screens showing payroll financing, withdrawals and analytics' : 'UXORA logo';
   const url = origin + (path === '/' ? '/' : path);
   return `<title>${escape(title)}</title>
     <meta name="description" content="${escape(description)}" />
@@ -27,15 +33,15 @@ export function head(path) {
     <meta property="og:title" content="${escape(title)}" />
     <meta property="og:description" content="${escape(description)}" />
     <meta property="og:url" content="${url}" />
-    <meta property="og:image" content="${origin}/uxora-social.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="UXORA logo" />
+    <meta property="og:image" content="${origin}${image}" />
+    <meta property="og:image:width" content="${isEzWage || isAiCalorie ? 2140 : 1200}" />
+    <meta property="og:image:height" content="${isEzWage || isAiCalorie ? 1376 : 630}" />
+    <meta property="og:image:alt" content="${imageAlt}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escape(title)}" />
     <meta name="twitter:description" content="${escape(description)}" />
-    <meta name="twitter:image" content="${origin}/uxora-social.png" />
-    <meta name="twitter:image:alt" content="UXORA logo" />
+    <meta name="twitter:image" content="${origin}${image}" />
+    <meta name="twitter:image:alt" content="${imageAlt}" />
     ${path === '/' ? `<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebSite', name:'UXORA', url:origin+'/'})}</script>` : ''}`;
 }
 export function replaceHead(html, path) {
