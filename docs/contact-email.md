@@ -1,6 +1,6 @@
 # Contact email setup
 
-The contact form posts to `/api/contact`, a Vercel Node function. It submits two separate plain-text emails through Resend: the enquiry to tech.uxora@gmail.com and a confirmation containing the same details to the visitor. Replies go to the visitor and UXORA respectively. API errors retain the form for retry; stable idempotency keys prevent duplicate batches on retries.
+The contact form posts to `/api/contact`, a Vercel Node function. It submits two separate branded HTML emails with plain-text fallbacks through Resend: the enquiry to tech.uxora@gmail.com and a confirmation containing the same details to the visitor. Replies go to the visitor and UXORA respectively. API errors retain the form for retry; stable idempotency keys prevent duplicate batches on retries.
 
 ## Activate on Vercel
 
@@ -12,3 +12,7 @@ The contact form posts to `/api/contact`, a Vercel Node function. It submits two
 Use `vercel dev` for local full-stack testing; Vite alone does not run the `/api/contact` function. Keep local secrets in `.env.local` (ignored by git). No actual email delivery was tested without configured credentials.
 
 Reference: https://resend.com/docs/api-reference/emails/send-batch-emails
+
+## Email templates
+
+Both templates live in `lib/contact-emails.js`. They use inline styles, presentation tables, system fonts, an Outlook width fallback and escaped user content. Sample previews are in `docs/email-previews/`. Live Gmail/Outlook rendering should be checked after redeployment; automated checks do not replace inbox testing.

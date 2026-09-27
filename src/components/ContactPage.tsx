@@ -1,12 +1,14 @@
 import { useRef, useState } from 'react';
 import type { FormEvent } from 'react';
-import { ArrowUpRight, ChevronDown } from 'lucide-react';
+import { ArrowUpRight, ChevronDown, Check, X } from 'lucide-react';
 
 export default function ContactPage() {
   const [budget, setBudget] = useState('');
   const [notice, setNotice] = useState('');
   const [sending, setSending] = useState(false);
   const pending = useRef(false);
+  const successDialog = useRef<HTMLDialogElement>(null);
+  const submitButton = useRef<HTMLButtonElement>(null);
   const submissionId = useRef(crypto.randomUUID());
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -24,7 +26,7 @@ export default function ContactPage() {
       });
       const result = await response.json();
       if (!response.ok || !result.ok) throw new Error(result.error || 'Unable to send your enquiry. Please try again.');
-      setNotice('Thank you! Your enquiry has been submitted and a confirmation copy is on its way to your email. Please check your spam folder too.');
+      successDialog.current?.showModal();
       form.reset();
       setBudget('');
       submissionId.current = crypto.randomUUID();
@@ -60,11 +62,20 @@ export default function ContactPage() {
           </div>
           <label htmlFor="contact-country">Your Country<input id="contact-country" name="country" placeholder="Write your country name" autoComplete="country-name" maxLength={120} required /></label>
           <label htmlFor="contact-message">Messages<textarea id="contact-message" name="message" placeholder="Your messages here..." required maxLength={5000} /></label>
-          <button className="contact-submit" type="submit" disabled={sending}>{sending ? 'SENDING…' : 'SUBMIT'}<span><ArrowUpRight /></span></button>
+          <button ref={submitButton} className="contact-submit" type="submit" disabled={sending}>{sending ? 'SENDING…' : 'SUBMIT'}<span><ArrowUpRight /></span></button>
           <p className="contact-submit-note">We’ll email a copy of your enquiry to you.</p>
           {notice && <p className="contact-form-notice" role="status">{notice}</p>}
         </form>
       </section>
+      <dialog ref={successDialog} className="contact-success-dialog" aria-labelledby="contact-success-title" aria-describedby="contact-success-description" onClose={() => submitButton.current?.focus()}>
+        <button type="button" className="contact-success-close" aria-label="Close confirmation" onClick={() => successDialog.current?.close()}><X aria-hidden="true" /></button>
+        <span className="contact-success-icon"><Check aria-hidden="true" /></span>
+        <p className="contact-success-eyebrow">THANK YOU FOR REACHING OUT</p>
+        <h2 id="contact-success-title">Enquiry received!</h2>
+        <p id="contact-success-description">We’ve received your enquiry and will get back to you shortly.</p>
+        <p className="contact-success-copy">A confirmation copy is on its way to your email.</p>
+        <button type="button" className="contact-success-done" onClick={() => successDialog.current?.close()}>Got it <ArrowUpRight aria-hidden="true" /></button>
+      </dialog>
     </main>
   );
 }

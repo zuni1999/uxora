@@ -935,3 +935,16 @@ html { scroll-behavior: smooth; }
   .ai-calorie-case .case-full-image { border-radius: 12px; }
   .ai-calorie-case .case-talk h2 { font-size: clamp(22px, 6vw, 40px); }
 }
+
+.contact-success-dialog { position: fixed; inset: 0; margin: auto; width: min(480px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); overflow-y: auto; box-sizing: border-box; border: 1px solid #e8e9ee; border-radius: 24px; padding: 44px 30px 32px; background: #fff; color: #161616; text-align: center; box-shadow: 0 24px 80px #0003; }
+.contact-success-dialog::backdrop { background: #1119; backdrop-filter: blur(5px); }
+.contact-success-close { position: absolute; top: 14px; right: 14px; display: grid; place-items: center; width: 36px; height: 36px; border: 0; border-radius: 50%; background: #f3f4f7; color: #161616; cursor: pointer; }
+.contact-success-close svg { width: 18px; height: 18px; }
+.contact-success-icon { display: grid; place-items: center; width: 72px; height: 72px; margin: 0 auto 24px; background: #8bc500; border-radius: 50%; color: #111; }
+.contact-success-icon svg { width: 34px; height: 34px; }
+.contact-success-dialog .contact-success-eyebrow { font-size: 11px; letter-spacing: 1.2px; font-weight: 600; color: #0851dd; margin: 0 0 12px; }
+.contact-success-dialog h2 { font-size: clamp(26px, 5vw, 34px); line-height: 1.2; margin: 0 0 16px; }
+.contact-success-dialog p { font-size: 16px; line-height: 1.6; color: #555563; margin: 0; }
+.contact-success-dialog .contact-success-copy { font-size: 13px; margin-top: 12px; }
+.contact-success-done { display: inline-flex; align-items: center; justify-content: center; gap: 24px; margin-top: 28px; padding: 14px 24px; border: 0; border-radius: 50px; background: #111; color: #fff; font: inherit; cursor: pointer; }
+.contact-success-done svg { width: 22px; height: 22px; color: #8bc500; }

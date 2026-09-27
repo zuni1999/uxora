@@ -21,6 +21,7 @@ test('contact validation and two-recipient delivery', async () => {
     const res = response(); await handler(request(), res); assert.equal(res.code, 200);
     const emails = JSON.parse(calls[0].options.body);
     assert.equal(emails.length, 2);
+    assert.ok(emails.every(email => email.html.includes('<!doctype html>') && email.html.includes(body.message)));
     assert.deepEqual(emails[0].to, ['tech.uxora@gmail.com']);
     assert.deepEqual(emails[1].to, ['visitor@example.com']);
     assert.equal(emails[0].reply_to, body.email);
@@ -36,5 +37,18 @@ test('contact validation and two-recipient delivery', async () => {
     globalThis.fetch = originalFetch;
     if (oldKey === undefined) delete process.env.RESEND_API_KEY; else process.env.RESEND_API_KEY = oldKey;
     if (oldFrom === undefined) delete process.env.CONTACT_FROM_EMAIL; else process.env.CONTACT_FROM_EMAIL = oldFrom;
+  }
+});
+
+test('HTML templates escape submitted content and preserve message lines', async () => {
+  const { contactEmailHtml } = await import('../lib/contact-emails.js');
+  for (const audience of ['team', 'visitor']) {
+    const html = contactEmailHtml({ ...body, name: '<script>alert(1)</script>', message: '<img src=x onerror=alert(1)>\nSecond line' }, audience);
+    assert.ok(!html.includes('<script>'));
+    assert.ok(!html.includes('<img src=x'));
+    assert.ok(html.includes('&lt;script&gt;'));
+    assert.ok(html.includes('<br>Second line'));
+    assert.ok(html.includes('$5000 USD'));
+    assert.ok(html.includes(audience === 'team' ? 'Reply to enquiry' : 'Thanks for reaching out.'));
   }
 });

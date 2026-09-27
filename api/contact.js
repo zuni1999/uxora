@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { contactEmailHtml } from '../lib/contact-emails.js';
 
 const inbox = 'tech.uxora@gmail.com';
 const types = ['SAAS', 'Web & App Design', 'Custom Software Development', 'AI Automation', 'Product Design', 'E-Commerce', 'Cloud Integration', 'Other'];
@@ -27,8 +28,8 @@ export default async function handler(req, res) {
   const details = `Full name: ${data.name}\nEmail: ${data.email}\nProject type: ${data.type}\nBudget: ${data.budget ? `$${data.budget} USD` : 'Not specified'}\nCountry: ${data.country}\n\nMessage:\n${data.message}`;
   const from = process.env.CONTACT_FROM_EMAIL;
   const emails = [
-    { from, to: [inbox], reply_to: data.email, subject: `Project enquiry — ${data.type}`, text: `New UXORA website enquiry\n\n${details}` },
-    { from, to: [data.email], reply_to: inbox, subject: 'Your enquiry to UXORA', text: `Hi ${data.name},\n\nThank you for contacting UXORA. Here is a copy of your enquiry. Our team will review it and get back to you.\n\n${details}\n\nUXORA Team\n${inbox}` },
+    { html: contactEmailHtml(data, 'team'), from, to: [inbox], reply_to: data.email, subject: `Project enquiry — ${data.type}`, text: `New UXORA website enquiry\n\n${details}` },
+    { html: contactEmailHtml(data, 'visitor'), from, to: [data.email], reply_to: inbox, subject: 'Your enquiry to UXORA', text: `Hi ${data.name},\n\nThank you for contacting UXORA. Here is a copy of your enquiry. Our team will review it and get back to you.\n\n${details}\n\nUXORA Team\n${inbox}` },
   ];
   try {
     const response = await fetch('https://api.resend.com/emails/batch', {
