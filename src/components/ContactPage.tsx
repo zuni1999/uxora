@@ -1,16 +1,39 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { ArrowUpRight, ChevronDown } from 'lucide-react';
 
 export default function ContactPage() {
   const [budget, setBudget] = useState('');
   const [notice, setNotice] = useState('');
-  function submit(event: FormEvent<HTMLFormElement>) {
+  const [sending, setSending] = useState(false);
+  const pending = useRef(false);
+  const submissionId = useRef(crypto.randomUUID());
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const values = new FormData(event.currentTarget);
-    const body = `Full name: ${values.get('name')}\nEmail: ${values.get('email')}\nProject type: ${values.get('type')}\nBudget: ${budget ? `$${budget} USD` : 'Not specified'}\nCountry: ${values.get('country')}\n\n${values.get('message')}`;
-    window.location.href = `mailto:tech.uxora@gmail.com?subject=${encodeURIComponent(`Project enquiry — ${values.get('type')}`)}&body=${encodeURIComponent(body)}`;
-    setNotice('Your email app will open with your project details. Please send the email there to complete your enquiry.');
+    if (pending.current) return;
+    const form = event.currentTarget;
+    const values = Object.fromEntries(new FormData(form));
+    pending.current = true;
+    setSending(true);
+    setNotice('');
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...values, submissionId: submissionId.current }),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.ok) throw new Error(result.error || 'Unable to send your enquiry. Please try again.');
+      setNotice('Thank you! Your enquiry has been submitted and a confirmation copy is on its way to your email. Please check your spam folder too.');
+      form.reset();
+      setBudget('');
+      submissionId.current = crypto.randomUUID();
+    } catch (error) {
+      setNotice(error instanceof Error && !error.message.includes('JSON') ? error.message : 'Unable to send your enquiry. Please try again or email tech.uxora@gmail.com.');
+    } finally {
+      pending.current = false;
+      setSending(false);
+    }
   }
   return (
     <main className="contact-page">
@@ -27,17 +50,18 @@ export default function ContactPage() {
         </div>
       </section>
       <section className="contact-form-scene" aria-label="Tell us about your project">
-        <form className="contact-form" onSubmit={submit}>
+        <form className="contact-form" onSubmit={submit} aria-busy={sending}>
+          <input name="website" type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ display: 'none' }} />
           <label htmlFor="contact-name">Full name<input id="contact-name" name="name" placeholder="Your full name" autoComplete="name" required maxLength={120} /></label>
-          <label htmlFor="contact-email">Email address<input id="contact-email" name="email" type="email" placeholder="Your email address" autoComplete="email" required /></label>
+          <label htmlFor="contact-email">Email address<input id="contact-email" name="email" type="email" placeholder="Your email address" autoComplete="email" maxLength={254} required /></label>
           <div className="contact-form-row">
             <label htmlFor="contact-type">Project Type<span className="contact-select"><select id="contact-type" name="type" defaultValue="SAAS"><option>SAAS</option><option>Web &amp; App Design</option><option>Custom Software Development</option><option>AI Automation</option><option>Product Design</option><option>E-Commerce</option><option>Cloud Integration</option><option>Other</option></select><ChevronDown aria-hidden="true" /></span></label>
             <label htmlFor="contact-budget">Budget<span className="contact-budget-field"><span aria-hidden="true">$</span><input id="contact-budget" name="budget" type="text" inputMode="numeric" pattern="[0-9]*" aria-label="Budget in US dollars" placeholder="Type Your Budget" maxLength={100} value={budget} onChange={(event) => setBudget(event.target.value.replace(/[^0-9]/g, ''))} /></span></label>
           </div>
-          <label htmlFor="contact-country">Your Country<input id="contact-country" name="country" placeholder="Write your country name" autoComplete="country-name" required /></label>
+          <label htmlFor="contact-country">Your Country<input id="contact-country" name="country" placeholder="Write your country name" autoComplete="country-name" maxLength={120} required /></label>
           <label htmlFor="contact-message">Messages<textarea id="contact-message" name="message" placeholder="Your messages here..." required maxLength={5000} /></label>
-          <button className="contact-submit" type="submit">SUBMIT<span><ArrowUpRight /></span></button>
-          <p className="contact-submit-note">Opens your email app to send your enquiry.</p>
+          <button className="contact-submit" type="submit" disabled={sending}>{sending ? 'SENDING…' : 'SUBMIT'}<span><ArrowUpRight /></span></button>
+          <p className="contact-submit-note">We’ll email a copy of your enquiry to you.</p>
           {notice && <p className="contact-form-notice" role="status">{notice}</p>}
         </form>
       </section>
