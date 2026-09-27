@@ -1,3 +1,4 @@
+import WhatsAppIcon from './components/WhatsAppIcon';
 import { useEffect, useState } from 'react';
 import { ArrowRight, ArrowUpRight, Check, Copy, Mail, Menu, X } from 'lucide-react';
 import logo from './assets/logo.svg';
@@ -143,6 +144,7 @@ export default function App() {
         <InsightsSection />
       </main>}
       <ClosingSection showBanner={!isContactPage && !isCaseStudy && !serviceSlug && !isBlogPage} />
+      <a className="floating-whatsapp" href="https://api.whatsapp.com/send/?phone=447901757510&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="Chat with UXORA on WhatsApp (opens in a new tab)" title="Chat on WhatsApp"><WhatsAppIcon /></a>
     </>
   );
 }

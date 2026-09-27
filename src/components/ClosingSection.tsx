@@ -1,3 +1,4 @@
+import WhatsAppIcon from './WhatsAppIcon';
 import { ArrowUpRight } from 'lucide-react';
 import ideaIcon from '../assets/idea.svg';
 import logo from '../assets/logo.svg';
@@ -56,7 +57,7 @@ export default function ClosingSection({ showBanner = true }: { showBanner?: boo
             </div>
           </div>
           <nav className="footer-navigation" aria-label="Footer navigation"><h3>Navigation</h3><a href="/#home">Home</a><a href="/#about-us">About</a><a href="/#services">Services</a><a href="/#insights">Insights</a></nav>
-          <div className="footer-contacts"><h3>Contact</h3><a href="mailto:tech.uxora@gmail.com">tech.uxora@gmail.com</a><a className="footer-phone" href="tel:+447901757510">+44 7901 757510</a><a href="https://uxora.co">uxora.co</a></div>
+          <div className="footer-contacts"><h3>Contact</h3><a href="mailto:tech.uxora@gmail.com">tech.uxora@gmail.com</a><a className="footer-phone" href="https://api.whatsapp.com/send/?phone=447901757510&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="Chat with UXORA on WhatsApp at +44 7901 757510 (opens in a new tab)"><WhatsAppIcon /><span>+44 7901 757510</span></a><a href="https://uxora.co">uxora.co</a></div>
         </div>
         <div className="footer-legal"><p>© 2026 UXORA. All rights reserved.</p><p>UXORA | AI, Product Design &amp; Web Development Agency</p></div>
         <div className="footer-wordmark" aria-hidden="true">UXORA.CO</div>
